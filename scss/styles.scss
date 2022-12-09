@@ -1,0 +1,206 @@
+@use 'variables' as var;
+@use 'initial' as init;
+@use 'mixins' as mix;
+
+.main-container {
+    width: 375px;
+    margin: auto;
+
+    &__background-section {
+        background-image: url(../images/bg-main-mobile.png);
+        height: 240px;
+        position: relative;
+    }
+
+    &__form-section {
+        padding: 90px 24px 45px;
+    }
+
+    @media (min-width: 1440px) {
+        width: 1440px;
+        display: flex;
+
+        &__background-section {
+            width: 900px;
+            height: 900px;
+            background-image: url(../images/bg-main-desktop.png);
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+.card {
+    @include mix.card('../images/bg-card-front.png');
+    @include mix.card-position(126px, 18px, 187px, 167px);
+    z-index: 1;
+    letter-spacing: 2px;
+
+    &__logo {
+        width: 55px;
+        margin-bottom: 30px;
+    }
+
+    &__number {
+        margin-bottom: 15px;
+    }
+
+    &__details {
+        font-size: .6em;
+        display: flex;
+        justify-content: space-between;
+        text-transform: uppercase;
+    }
+
+    @media (min-width: 1440px) {
+        &__logo {
+            width: 86px;
+            margin-bottom: 55px;
+        }
+
+        &__number {
+            font-size: 1.6em;
+            margin-bottom: 25px;
+        }
+
+        &__details {
+            font-size: .8em;
+        }
+    }
+}
+
+.card-back {
+    @include mix.card('../images/bg-card-back.png');
+    @include mix.card-position(30px, 75px, 468px, 257px);
+    letter-spacing: 2px;
+
+    &__cvc {
+        font-size: .7em;
+        margin-top: 50px;
+        text-align: right;
+        padding-right: 12px;
+
+        @media (min-width: 1440px) {
+            font-size: 1em;
+            margin-top: 80px;
+            padding-right: 32px;
+        }
+    }
+}
+
+.form {
+    // display: none;
+    &__label {
+        text-transform: uppercase;
+        font-size: .65em;
+        letter-spacing: 2px;
+        display: block;
+        margin-bottom: 8px;
+        color: var.$Very-dark-violet;
+        font-weight: bold;
+    }
+
+    &__input {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 18px;
+        padding-left: 10px;
+        border-radius: 4px;
+        font-size: 1em;
+        border: 1px solid var.$Light-grayish-violet;
+        outline: none;
+
+        &::placeholder {
+            color: var.$Light-grayish-violet;
+        }
+    }
+
+    &__date-cvc {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0 16px;
+    }
+
+    &__date {
+        display: flex;
+        gap: 0 10px;
+    }
+    &__errors-container{
+        display: flex;
+        gap: 5px;
+        div{
+           width: 81px;
+           text-align: center;
+        }
+    }
+    &__submit {
+        background-color: var.$Very-dark-violet;
+        color: var.$Light-grayish-violet;
+        width: 100%;
+        height: 50px;
+        border-radius: 8px;
+        font-size: 1em;
+        letter-spacing: 1px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        margin-top: 180px;
+        width: 385px;
+
+        &__input {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.error {
+    color: var.$Errors-red;
+    margin: -10px 0 18px;
+    font-size: .6em;
+}
+
+.thanks-sections {
+    width: 335px;
+    margin: auto;
+    display: none;
+    &__img{
+        display: block;
+        margin: auto;
+        margin-bottom: 30px;
+    }
+    &__title{
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 400;
+        letter-spacing: 4px;
+        color: var.$Very-dark-violet;
+        margin-bottom: 24px;
+    }
+    &__text {
+        text-align: center;
+        color: var.$Dark-grayish-violet;
+        font-size: 1.1em;
+        margin-bottom: 24px;        
+    }
+    &__button {
+        @extend .form__submit;
+    }
+    @media (min-width: 1440px) {
+        // margin-top: 180px;
+    }
+}
+
+
+
+.attribution {
+    margin-top: 40px;
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}

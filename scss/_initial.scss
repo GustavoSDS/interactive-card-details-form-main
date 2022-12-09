@@ -1,0 +1,23 @@
+@use 'variables' as var;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+input,
+button,
+label,
+div,
+section,
+span,
+p,
+a {
+    font-family: var.$Font-family;
+}
+
+body {
+    font-size: var.$Font-size;
+}
